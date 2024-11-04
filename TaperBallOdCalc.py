@@ -1,4 +1,6 @@
 import math
+import time
+from time import sleep
 from decimal import Decimal, ROUND_UP
 
 def calculate_hypotenuse(radius):
@@ -81,6 +83,8 @@ def main():
         # Output results with rounded up values
         print(f"The OD at {loc1} is: {format_decimal(back_od1 - adjusteddecimal, 5)} inches.")
         print(f"The OD at {loc2} is: {format_decimal(back_od2 - adjusteddecimal, 5)} inches.")
+
+        sleep(45)
 
 if __name__ == "__main__":
     main()
