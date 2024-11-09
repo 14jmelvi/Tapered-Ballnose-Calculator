@@ -1,1 +1,1 @@
-Used to calculate the OD size of a tapered ballnose tool at two distances (front to back) from the tip of the tool.
+A program to calculate the Outer Diameter (OD) size of a tapered ballnose tool at two distances (front to back) from the tip of the tool. Simply input the radius of the ball, the angle of the taper (not the included angle!), and two lengths from the tip of the tool where you want to measure the OD.
