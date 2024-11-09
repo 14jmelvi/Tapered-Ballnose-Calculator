@@ -1,11 +1,20 @@
 import math
 import decimal
+import time
+from time import sleep
 from decimal import Decimal, ROUND_UP, getcontext
 from math import sqrt, tan, cos, sin, degrees, radians
 
+def safe_decimal_input(prompt):
+    while True:
+        try:
+            return Decimal(input(prompt))
+        except decimal.InvalidOperation:
+            print("Invalid input. Please enter a number.")
+
 def calculate_od():
     # Assign values
-    radius = Decimal(input("Input the radius of the ball: ")) # the radius will be sides a and b for our triangle
+    radius = safe_decimal_input("Input the radius of the ball in inches: " ) # the radius will be sides a and b for our triangle
     side_a = radius
     side_b = radius
 
@@ -18,7 +27,7 @@ def calculate_od():
     angle_c = Decimal(90)
 
     # Ask user for taper angle
-    taper_angle = Decimal(input("Input taper angle: "))
+    taper_angle = safe_decimal_input("Input taper angle: ")
 
     # Adjust angles of triangle for side b (LOC of the tangency point of ball taper)
     angle_a2 = angle_a - taper_angle 
@@ -52,8 +61,8 @@ def calculate_od():
     tangency_size_od = tangency_height_rounded * Decimal(2)
 
     # Calculate OD at various points (LOC) of a taper
-    loc_front = Decimal(input("Input LOC at front of the tool: "))
-    loc_back = Decimal(input("Input LOC at back of the tool: "))
+    loc_front = safe_decimal_input("Input LOC at front of the tool in inches: ")
+    loc_back = safe_decimal_input("Input LOC at back of the tool in inches: ")
 
     # Convert tan(taper_angle) result to Decimal
     taper_angle_rad = radians(float(taper_angle))  # Convert taper_angle to float, then to radians
@@ -78,3 +87,5 @@ while True:
     if repeat.lower() == 'n':
         print("Goodbye!")
         break
+
+sleep(2)
